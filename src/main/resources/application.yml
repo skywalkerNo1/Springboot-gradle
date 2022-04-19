@@ -37,6 +37,16 @@ spring:
     timeBetweenEvictionRunsMillis: 60000
     # 连接的最小生存时间， 单位毫秒
     minEvictableIdleTimeMillis: 300000
+  kafka:
+    bootstrap-servers: 127.0.0.1:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      # kafka 的认证机制
+      properties:
+        security.protocol: SASL_PLAINTEXT
+        sasl.mechanism: SCRAM-SHA-256
+        sasl.jaas.config: org.apache.kafka.common.security.scram.ScramLoginModule required username='admin' password='admin';
 
 logging:
   #  此配置是用于打印log日志所使用
