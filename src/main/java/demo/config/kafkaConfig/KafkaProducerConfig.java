@@ -18,7 +18,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * 配置生产者的工厂类
+ * 配置 Kafka 的生产者的工厂类
  *
  * @author admin
  */
