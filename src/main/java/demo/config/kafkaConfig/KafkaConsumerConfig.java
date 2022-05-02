@@ -28,6 +28,9 @@ public class KafkaConsumerConfig implements ApplicationRunner {
      * 2、session.timeout.ms coordinator 检测失败的时间， 设置为比较小的值
      * 3、max.pool.interval.ms consumer 处理逻辑最大时间
      * 4、auto.offset.reset [earliest, lastest, none]
+     * earliest: 当个分区下有已提交的offset时，从提交的offset开始消费，无提交时的offset时，从头开始消费
+     * latest: 当各分区下有已提交的offset时，从提交的offset开始消费，无提交的offset时， 消费新产生的该分区下的数据
+     * none: topic个分区都存在已提交的offset时， 从offset后开始消费，只要有一个分区不存在已提交的offset，则抛出异常
      * 5、enable.auto.commit 是否自动提交位移，设置为false, 由用户自行提交位移
      * 6、fetch.max.bytes 指定consumer单次获取数据的最大字节数
      * 7、max.poll.records 单次调用poll的最大返回消息数，默认500
