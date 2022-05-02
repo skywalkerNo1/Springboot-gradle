@@ -1,4 +1,4 @@
-package demo.config.kafka;
+package demo.config.kafkaConfig;
 
 import com.alibaba.druid.util.StringUtils;
 import org.apache.kafka.clients.CommonClientConfigs;
