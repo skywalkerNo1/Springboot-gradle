@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
@@ -19,6 +20,7 @@ import java.util.concurrent.ExecutorService;
 
 @Api(tags = "demo")
 @RestController
+@RequestMapping("/api")
 public class demoController extends BaseController {
 
     @Autowired
@@ -42,5 +44,9 @@ public class demoController extends BaseController {
     public Map<String, Object> kafkaDemo(String message) {
         kafkaTemplate.send( "kafka-test",message);
         return successResult();
+    }
+
+    public static void main(String[] args) {
+        
     }
 }

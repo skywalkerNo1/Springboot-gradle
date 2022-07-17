@@ -53,23 +53,23 @@ public class KafkaConsumerConfig implements ApplicationRunner {
         KafkaConsumer<String, String> consumer = new KafkaConsumer<String, String>(properties);
         consumer.subscribe(Collections.singletonList(topic));
 
-        try {
-            while (true) {
-                // 1000 是超时时间（ms）, 在该时间内 poll 会等待服务器返回数据
-                ConsumerRecords<String, String> records = consumer.poll(1000);
-                // poll返回一个记录里列表，
-                // 每条记录都包含了记录所属组题的信息， 记录所在分区的信息， 记录在分区里的偏移量， 以及记录的键值对
-                for (ConsumerRecord<String, String> record : records) {
-                    System.out.println("--------------------------------------------------------");
-                    System.out.printf("offset=%d, key=%s, value=%s%n", record.offset(), record.key(), record.value());
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            // 关闭消费者， 网络连接和socket也会随之关闭， 并立即触发一次在均衡
-            consumer.close();
-        }
+//        try {
+//            while (true) {
+//                // 1000 是超时时间（ms）, 在该时间内 poll 会等待服务器返回数据
+//                ConsumerRecords<String, String> records = consumer.poll(1000);
+//                // poll返回一个记录里列表，
+//                // 每条记录都包含了记录所属组题的信息， 记录所在分区的信息， 记录在分区里的偏移量， 以及记录的键值对
+//                for (ConsumerRecord<String, String> record : records) {
+//                    System.out.println("--------------------------------------------------------");
+//                    System.out.printf("offset=%d, key=%s, value=%s%n", record.offset(), record.key(), record.value());
+//                }
+//            }
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        } finally {
+//            // 关闭消费者， 网络连接和socket也会随之关闭， 并立即触发一次在均衡
+//            consumer.close();
+//        }
 
 
     }
