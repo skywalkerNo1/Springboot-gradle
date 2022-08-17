@@ -85,8 +85,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         });
         // 可以允许login 不被拦截
         urlRegistry.antMatchers("/login").permitAll()
-                .antMatchers("/test/getTest").permitAll()
-                .antMatchers("/test/getShowTest").permitAll()
+                .antMatchers("/test/**").permitAll()
                // 设置自定义登录页面
                 .antMatchers("/**").fullyAuthenticated().and().formLogin();
     }

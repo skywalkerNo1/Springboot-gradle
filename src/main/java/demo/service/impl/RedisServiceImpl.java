@@ -18,7 +18,7 @@ public class RedisServiceImpl implements RedisService {
     //缓存过期时间
     public static final Integer ONE_HOUR_TIMEOUT = 3600;
 
-    @Resource(name = "redisTemple")
+    @Resource(name = "template")
     private RedisTemplate<String, Object> redisTemplate;
 
     @Override
