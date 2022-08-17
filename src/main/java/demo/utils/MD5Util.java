@@ -2,6 +2,9 @@ package demo.utils;
 
 import java.security.MessageDigest;
 
+/**
+ * md5加密方式
+ */
 public class MD5Util {
 
    private static final String SALT = "mayikt";
