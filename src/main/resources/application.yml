@@ -2,6 +2,8 @@ server:
   port: 8888
 
 spring:
+  profiles:
+    active: db
   jackson:
     # 该配置是用于解决jackson对于时间格式的配置
     date-format: yyyy-MM-dd HH:mm:ss
@@ -19,24 +21,6 @@ spring:
       max-idle: 8   #最大空闲连接数 默认8
       max-wait: -1 # 获取连接的最大等待时间，默认-1，表示无限制，单位毫秒。 默认值可能会因为获取不到连接， 导致事务无法提交，数据库被锁，大量线程处于等待状态的情况
       min-idle: 0 # 最小空闲连接数， 默认0
-  # 数据库连接配置
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    jdbc-url: jdbc:mysql://127.0.0.1:3306/mayikt_rbac?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&autoReconnect=true&failOverReadOnly=false&useSSL=false&serverTimezone=Asia/Shanghai
-    username: root
-    password: 123456
-    #最大连接数
-    maxActive: 1000
-    # 连接池初始化大小
-    initialSize: 100
-    # 获取连接的最大等待时间，单位毫秒
-    maxWait: 60000
-    # 最小保留数
-    minIdle: 500
-    # 检测关闭空闲连接的间隔时间， 单位毫秒
-    timeBetweenEvictionRunsMillis: 60000
-    # 连接的最小生存时间， 单位毫秒
-    minEvictableIdleTimeMillis: 300000
   kafka:
     bootstrap-servers: 127.0.0.1:9092
     producer:

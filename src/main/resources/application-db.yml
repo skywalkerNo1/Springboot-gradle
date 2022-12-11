@@ -1,0 +1,26 @@
+# 数据库连接配置 多数据源配置 读写分离
+datasource:
+    # 写库
+    write:
+        driverClassName: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://127.0.0.1:3306/mayikt_rbac?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&autoReconnect=true&failOverReadOnly=false&useSSL=false&serverTimezone=Asia/Shanghai
+        username: root
+        password: 123456
+    # 读库
+    read:
+        driverClassName: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://127.0.0.1:3306/mayikt_rbac?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&autoReconnect=true&failOverReadOnly=false&useSSL=false&serverTimezone=Asia/Shanghai
+        username: root
+        password: 123456
+    #最大连接数
+    maxActive: 1000
+    # 连接池初始化大小
+    initialSize: 100
+    # 获取连接的最大等待时间，单位毫秒
+    maxWait: 60000
+    # 最小保留数
+    minIdle: 500
+    # 检测关闭空闲连接的间隔时间， 单位毫秒
+    timeBetweenEvictionRunsMillis: 60000
+    # 连接的最小生存时间， 单位毫秒
+    minEvictableIdleTimeMillis: 300000
