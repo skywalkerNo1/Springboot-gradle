@@ -6,6 +6,10 @@ package demo.service;
  **/
 public interface AsyncSerivce {
 
+    void getReadTest();
+
+    void getWriteTest();
+
     /**
      * 执行异步任务
      * 可以根据需求， 自己加参数

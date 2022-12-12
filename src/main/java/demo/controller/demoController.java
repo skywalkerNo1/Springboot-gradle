@@ -39,6 +39,8 @@ public class demoController extends BaseController {
     @ApiOperation("测试接口")
     @GetMapping("/test")
     public Map<String, Object> test() {
+        asyncSerivce.getReadTest();
+        asyncSerivce.getWriteTest();
         return successResult("test success!");
     }
 

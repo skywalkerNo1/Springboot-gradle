@@ -1,8 +1,13 @@
 package demo.service.impl;
 
+import demo.config.db.DataSource;
+import demo.config.db.DatabaseType;
+import demo.dao.UserMapper;
+import demo.model.User;
 import demo.service.AsyncSerivce;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +19,23 @@ import org.springframework.stereotype.Service;
 public class AsyncServiceImpl implements AsyncSerivce {
 
     private static final Logger logger = LoggerFactory.getLogger(AsyncServiceImpl.class);
+
+    @Autowired
+    private UserMapper userMapper;
+
+    @Override
+//    @DataSource(type = DatabaseType.readDB)
+    public void getReadTest() {
+        User user = userMapper.selectByPrimaryKey(2);
+        System.out.println(user.toString());
+    }
+
+    @Override
+//    @DataSource(type = DatabaseType.writeDB)
+    public void getWriteTest() {
+        User user = userMapper.selectByPrimaryKey(2);
+        System.out.println(user.toString());
+    }
 
     // asyncServiceExecutor 是ThreadPoolExecutorConfig.java中的方法名，
     // 表明executedAsync方法进入的线程池是由 asyncServiceExecutor 方法创建的
