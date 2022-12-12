@@ -17,4 +17,8 @@ public class DatabaseContextHolder {
     public static DatabaseType get() {
         return contextHolder.get();
     }
-}
+	
+	public static void clearDataSource() {
+		contextHolder.remove();
+	}
+ }
