@@ -7,6 +7,10 @@ import tk.mybatis.spring.mapper.MapperScannerConfigurer;
 
 import java.util.Properties;
 
+/**
+* Mapper接口的代理
+* 这段配置会自动扫描 setBasePackage()下的所有接口, 然后创建接口的动态代理类
+*/
 @Configuration
 @AutoConfigureAfter(MyBatisConfig.class)
 public class MyBatisMapperScannerConfig {
